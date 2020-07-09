@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} /* makes sure grid doesn't move */
+
+body {
+  background-color: #cccccc;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+button {
+  background-color: rgb(0, 87, 128);
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  margin: 6px;
+  background-color: #6589f9;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100px;
+  width: 100px;
+}
+
+.selected {
+  border: 4px solid rgb(45, 109, 206);
+}
+
+.match {
+  border: 4px solid rgb(255, 196, 0);
+  background-image: none !important;
+}
+
+.card {
+  position: relative;
+  transition: all 0.4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
+}
+
+.card,
+.back,
+.front {
+  height: 150px;
+  width: 150px;
+}
+
+.back,
+.front {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  background: #cccccc url('../img/question.gif') no-repeat center center / contain;
+}
+
+.back { /* animation to flip */
+  transform: rotateY(180deg);
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.selected {
+  transform: rotateY(180deg);
+}
+
+.match .front {
+  background: blue !important;
+}
+#modalContainer {
+  background-color:rgba(0, 0, 0, 0.3);
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  z-index:10000;
+}
+
+#alertBox {
+  position:relative;
+  width:300px;
+  min-height:100px;
+  margin-top:50px;
+  border:1px solid #666;
+  background-color:#fff;
+  background-repeat:no-repeat;
+  background-position:20px 30px;
+}
+
+#modalContainer > #alertBox {
+  position:fixed;
+}
+
+#alertBox h1 {
+  margin:0;
+  background-color:#3073BB;
+  color:#FFF;
+  border-bottom:1px solid #000;
+  padding:2px 0 2px 5px;
+}
+
+#alertBox p {
+  height:50px;
+  padding: 3px;
+  margin: 3px;
+  text-align: center;
+  font-size: 15px;
+}
+
+#alertBox #closeBtn {
+  display:block;
+  position:relative;
+  margin:5px auto;
+  padding:10px;
+  border:0 none;
+  font-size: 12px;
+  width:70px;
+  text-align:center;
+  color:#FFF;
+  background-color:#357EBD;
+  border-radius: 3px;
+  text-decoration:none;
+}
